@@ -33,6 +33,9 @@ const MovieSearch = () => {
       // 더이상 로드될 데이터가 없을 때
       if (res.data.totalResults === undefined || Math.ceil(Number(res.data.totalResults) / 10) < pageNumber) {
         setOverPageNumber(true)
+        setTimeout(() => {
+          setOverPageNumber(false)
+        }, 1000)
         return
       }
       if (res.data.Response === 'True') {
@@ -81,7 +84,7 @@ const MovieSearch = () => {
       ) : (
         <div className={styles.nodata}>검색결과가 없습니다.</div>
       )}
-      {overPageNumber && <div className={cx(styles.loading)}>더이상 불러올 영화가 없습니다.</div>}
+      {overPageNumber && <div className={cx(styles.endoflist)}>더이상 불러올 영화가 없습니다.</div>}
     </section>
   )
 }

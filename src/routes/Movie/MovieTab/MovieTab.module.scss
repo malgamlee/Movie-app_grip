@@ -33,6 +33,11 @@
   .searchbtn:hover {
     background-color: lightgray;
   }
+
+  .endoflist {
+    color: colors.$GRAY6;
+    text-align: center;
+  }
 }
 
 .bookmark {

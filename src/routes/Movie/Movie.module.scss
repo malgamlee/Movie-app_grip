@@ -76,7 +76,7 @@
 
     .modalBox {
       background-color: whitesmoke;
-      border: 1px solid rgba(lightgray, 50%);
+      border: 1px solid black;
       border-radius: 10px;
 
       .modalContent {
@@ -116,8 +116,9 @@
   border-bottom: 1px solid lightgray;
 
   .moviePoster {
-    width: 80px;
+    width: 65px;
     height: 100px;
+    margin: 0 10px;
 
     img {
       width: 65px;
@@ -140,9 +141,12 @@
 
     p {
       height: 30px;
+      overflow: hidden;
       font-size: 20px;
       font-weight: bold;
       line-height: 30px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .info {
