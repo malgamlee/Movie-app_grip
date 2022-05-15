@@ -42,7 +42,7 @@ const MovieSearch = () => {
       }
       setIsResponse(res.data.Response)
     })
-  }, [searchValue, pageNumber])
+  }, [searchValue, pageNumber, setMovieData, resetMovieData])
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget
@@ -60,7 +60,7 @@ const MovieSearch = () => {
   useEffect(() => {
     resetMovieData()
     setPageNumber(1)
-  }, [inputValue])
+  }, [inputValue, resetMovieData])
 
   return (
     <section className={cx(styles.search)}>

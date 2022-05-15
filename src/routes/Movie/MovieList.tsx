@@ -87,7 +87,7 @@ const MovieList = ({ movieData, setChangeState, cpntname }: Props) => {
       setNewBookmark(jsonMovie)
       setClickId(jsonMovie.imdbID)
 
-      const isBookmarked = find(bookmark, function (o) {
+      const isBookmarked = find(bookmark, (o) => {
         return o.imdbID === jsonMovie.imdbID
       })
 
