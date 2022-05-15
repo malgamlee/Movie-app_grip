@@ -1,46 +1,73 @@
-# Getting Started with Create React App
+# 그립 컴퍼니 Web Front(React) 개발 사전 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 영화를 검색하고 즐겨찾기로 등록할 수 있는 React 앱을 구현합니다.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+# 구현 
+![image](https://user-images.githubusercontent.com/88325253/168460093-1eb50e7e-d515-4e33-9ded-652254afc48f.png)
 
-### `yarn start`
+## 검색 탭
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 하단 탭 바 구현
+- `react-router-dom`의 `route`, `Link`, `NavLink`를 이용해 하단 탭 바를 구현
+- 클릭 시 해당 페이지로 넘어가며, 선택된 탭이 활성화가 된 모습을 볼 수 있다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 앱 첫 진입 화면
+![image](https://user-images.githubusercontent.com/88325253/168460149-4e4fd501-b22c-4aa1-b7ce-457cb216e9dd.png)
 
-### `yarn test`
+### 검색 전 화면
+![image](https://user-images.githubusercontent.com/88325253/168460169-80470768-42cd-4120-9077-661b5c6db499.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 검색 입력/버튼
+- 입력을 한 후, 검색 버튼을 클릭하면 아래에 검색 결과 화면이 노출된다.
+- 검색 입력과 버튼을 `form` 태그로 묶었고, `onSubmit`을 통해 제출한 후, 아래에 검색 결과 리스트가 출력되도록 했다.
 
-### `yarn build`
+![image](https://user-images.githubusercontent.com/88325253/168460249-7ca3ccf9-8538-49d9-b868-a5b7195e54d7.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 검색 입력박스 아래로 한 줄에 하나의 영화를 노출하는 리스트형 목록으로 검색 결과가 노출된다.
+- 검색결과 목록을 최하단으로 내렸을 경우, 이전 리스트 값에 다음 페이지의 리스트 값이 포함되도록 하여 화면에 출력하도록 했다.
+  - 검색 결과가 없을 때까지 데이터가 출력되는 무한 스크롤 방식
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![image](https://user-images.githubusercontent.com/88325253/168460638-43e55397-3433-4df3-96fb-8d3528ce4771.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 만약 더이상 가져올 데이터가 없는데 계속 스크롤을 내리면 위와 같이 '더이상 불러올 영화가 없습니다' 라고 출력된다.
+- `setTimeout`을 이용하여 화면에 1000ms 출력된 후, 사라진다.
 
-### `yarn eject`
+#### 검색 결과 중 영화 클릭
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![image](https://user-images.githubusercontent.com/88325253/168460747-f27c5b06-24ff-4cb2-9c6e-1a85bb02a5fb.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 즐겨찾기가 된 영화는 빨간 태그로 표시되었고, 아닌 영화는 표시되지 않았다.
+- 즐겨찾기에 저장되지 않은 영화를 클릭하면 즐겨찾기에 추가하겠냐는 팝업이 등장한다.
+  - `추가` 시 `localStorage`에 저장되고, 빨간 태그가 생성된다.
+  - `취소` 시 팝업이 사라진다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![image](https://user-images.githubusercontent.com/88325253/168460872-266ef3d5-ad37-42cc-a338-5b6af2e44f25.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- 즐겨찾기에 저장된 영화를 클릭하면 즐겨찾기에서 삭제하겠냐는 팝업이 등장한다.
+  - `삭제` 시 `localStorage`에서 삭제되고, 빨간 태그가 사라진다.
+  - `취소` 시 팝업이 사라진다.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 즐겨찾기 탭
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![image](https://user-images.githubusercontent.com/88325253/168460913-c66b9b06-c28a-4933-bbe4-c0994b9bd8ab.png)
+
+- 앞서 검색에서 추가했던 모든 영화들이 출력된다.
+
+### 즐겨찾기 영화 리스트
+
+![image](https://user-images.githubusercontent.com/88325253/168461025-4718fd0f-5bc0-490f-b742-5507750e0834.png)
+
+- 즐겨찾기에 저장된 영화가 없을 경우 '즐겨찾기된 영화가 없습니다.' 라는 문구가 등장한다.
+
+### 즐겨찾기 삭제
+
+![image](https://user-images.githubusercontent.com/88325253/168460950-4c0df18f-da9b-4a1d-98d3-43454db3e6dc.png)
+
+- 즐겨찾기 리스트의 영화를 클릭하면, 즐겨찾기 삭제 팝업이 등장한다.
+  - `삭제` 시 `localStorage`에서 삭제되고, 화면 리스트에서 사라진다. 또한 검색 화면에서 빨간 태그가 사라진다.
+  - `취소` 시 팝업이 사라진다.
+
