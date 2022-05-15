@@ -1,0 +1,162 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.movie {
+  position: relative;
+  width: 360px;
+  height: 720px;
+  padding: 20px;
+  color: colors.$BLACK;
+  background: colors.$WHITE;
+  border: 1px solid lightgray;
+  border-radius: 30px;
+
+  .lnb {
+    display: flex;
+    justify-content: center;
+    width: 320px;
+    height: 60px;
+    border-top: 1px solid lightgray;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      width: 200px;
+      text-align: center;
+
+      li {
+        width: 80px;
+        height: 60px;
+
+        .tabicon {
+          height: 40px;
+        }
+
+        .tabtitle {
+          height: 10px;
+          font-size: 12px;
+        }
+      }
+    }
+
+    a {
+      color: colors.$GRAYA;
+
+      &.isActive {
+        font-weight: 600;
+        color: colors.$BLACK;
+      }
+    }
+  }
+}
+
+.list {
+  width: 320px;
+  height: 550px;
+  margin-top: 5px;
+  // background-color: aqua;
+
+  .movieList {
+    width: 320px;
+    height: 550px;
+    overflow: auto;
+  }
+
+  .modal {
+    position: absolute;
+    top: 300px;
+    display: none;
+    width: 320px;
+    height: 580px;
+    text-align: center;
+    background-color: rgba(black, 0%);
+    opacity: 0;
+
+    .modalBox {
+      background-color: whitesmoke;
+      border: 1px solid rgba(lightgray, 50%);
+      border-radius: 10px;
+
+      .modalContent {
+        justify-content: space-between;
+        width: 250px;
+        margin: 0 auto;
+        line-height: 60px;
+        text-align: center;
+
+        .modalBtn {
+          width: 100px;
+          height: 30px;
+          margin: 0 10px;
+          text-align: center;
+          background-color: rgb(60, 179, 113);
+        }
+
+        .modalBtn:hover {
+          background-color: rgba(rgb(60, 179, 113), 50%);
+        }
+      }
+    }
+  }
+
+  .open {
+    display: block;
+    opacity: 1;
+  }
+}
+
+.movieItemWrapper {
+  display: flex;
+  width: 320px;
+  height: 110px;
+  margin: 5px;
+  line-height: 50px;
+  border-bottom: 1px solid lightgray;
+
+  .moviePoster {
+    width: 80px;
+    height: 100px;
+
+    img {
+      width: 65px;
+      height: 100px;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+    }
+  }
+
+  .movieContent {
+    width: 200px;
+    height: 100px;
+    padding: 25px 0;
+    margin-right: 10px;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    // background-color: aqua;
+
+    p {
+      height: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 30px;
+    }
+
+    .info {
+      height: 20px;
+      line-height: 20px;
+      color: colors.$GRAY6;
+    }
+  }
+
+  .bookmarkIcon {
+    color: colors.$TRANSPARENT;
+  }
+
+  .marked {
+    color: colors.$RED;
+  }
+}

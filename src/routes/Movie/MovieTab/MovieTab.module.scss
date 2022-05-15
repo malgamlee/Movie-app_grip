@@ -1,0 +1,60 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.search {
+  width: 320px;
+  height: 630px;
+
+  form {
+    display: flex;
+  }
+
+  .title {
+    width: 265px;
+    height: 50px;
+    padding-left: 20px;
+    margin-right: 5px;
+    color: colors.$BLACK;
+    background-color: rgba(lightgray, 80%);
+    border-radius: 10px;
+  }
+
+  .searchbtn {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    transition: 0.2s;
+  }
+
+  .searchbtn:hover {
+    background-color: lightgray;
+  }
+}
+
+.bookmark {
+  width: 320px;
+  height: 630px;
+
+  .title {
+    width: 320px;
+    height: 50px;
+    padding-left: 10px;
+    margin-right: 5px;
+    font-weight: bold;
+    line-height: 50px;
+    color: colors.$BLACK;
+    text-align: center;
+  }
+}
+
+.nodata {
+  width: 320px;
+  height: 550px;
+  padding: 30px 0;
+  color: colors.$GRAY3;
+  text-align: center;
+}

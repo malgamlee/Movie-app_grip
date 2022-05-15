@@ -1,5 +1,7 @@
 {
 	"city.kwangmyung": "Kwangmyung",
 	"gnb.todo": "Todo",
-	"gnb.weather": "Weather"
+	"gnb.weather": "Weather",
+	"movie.search" : "search",
+	"movie.bookmark" : "bookmark"
 }

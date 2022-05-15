@@ -1,5 +1,7 @@
 {
 	"city.kwangmyung": "광명시",
 	"gnb.todo": "할일",
-	"gnb.weather": "날씨"
+	"gnb.weather": "날씨",
+	"movie.search" : "검색",
+	"movie.bookmark" : "즐겨찾기"
 }
