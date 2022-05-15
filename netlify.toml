@@ -1,0 +1,6 @@
+[build]
+  command = "yarn build"
+  publish = "build"
+
+[context.production.environment]
+  REACT_APP_MOVIE_APP_ID=92e32667
